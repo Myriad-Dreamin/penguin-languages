@@ -7,7 +7,6 @@ export default defineConfig({
   dts: true,
   clean: true,
   sourcemap: true,
-  // The five grammars are compiled in: the package ships its own few files rather than the
-  // whole grammar collection, which a push would carry one file at a time.
+  // The grammar is compiled in: the package ships its own few files, not the grammar collection.
   noExternal: [/^@shikijs\/langs/],
 });

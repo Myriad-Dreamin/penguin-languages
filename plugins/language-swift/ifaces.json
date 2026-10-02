@@ -1,0 +1,36 @@
+{
+  "hash": "ee3080593cede726f5bbf090ebfa18805fff1d74ac57f755566ebebf856a8335",
+  "ifaces": {
+    "@myriad-dreamin/penguin-language-swift#SwiftLanguage": {
+      "name": "SwiftLanguage",
+      "methods": {},
+      "slots": {}
+    }
+  },
+  "types": {},
+  "modules": {
+    "SwiftLanguage": {
+      "name": "SwiftLanguage",
+      "kind": "component",
+      "requires": {},
+      "provides": {
+        "SwiftLanguage": "@myriad-dreamin/penguin-language-swift#SwiftLanguage"
+      },
+      "contributes": {
+        "LanguagesModule.grammars": [
+          {
+            "id": "language.swift",
+            "language": "swift",
+            "displayName": "Swift",
+            "extensions": ["swift"]
+          }
+        ]
+      },
+      "children": []
+    }
+  },
+  "plugin": {
+    "modules": ["SwiftLanguage"],
+    "replaces": []
+  }
+}

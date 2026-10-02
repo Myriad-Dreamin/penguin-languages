@@ -1,83 +1,45 @@
 /**
- * What this package contributes, asserted against the grammars it actually ships, and against
- * the manifest that declares them — the two halves have to agree or the App is told about a
- * language whose grammar never arrives.
- *
- * The checks that matter are the two a wrong one would break silently: a grammar whose own
- * `name` is not the id the App asks for loads and then highlights nothing, and a fence info
- * string with no alias row resolves to no language at all — Shiki registers a grammar's aliases
- * only once it is LOADED, and the fence string is what decides whether to load it.
+ * Every plugin under plugins/: its grammar, its exported metadata and its generated manifest
+ * agree. The server lists a language from the manifest alone, so an alias or extension that only
+ * the grammar or the code carries never reaches the App.
  */
+import { readdirSync, readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { readFileSync } from "node:fs";
-import { languageContributions } from "../src/index.js";
 
-/** The generated table (the package's `test` script regenerates it before vitest runs). */
-const table = JSON.parse(readFileSync(new URL("../ifaces.json", import.meta.url), "utf8")) as {
-  modules: Record<
-    string,
-    {
-      contributes: Record<
-        string,
-        Array<{
-          id: string;
-          language: string;
-          displayName: string;
-          aliases?: string[];
-          extensions?: string[];
-        }>
-      >;
-    }
-  >;
-};
+const root = new URL("../plugins/", import.meta.url);
+const dirs = readdirSync(root).filter((d) => d.startsWith("language-"));
 
-describe("languageContributions", () => {
-  const byLanguage = new Map(languageContributions().map((c) => [c.data.language, c]));
+type Grammar = { name: string; scopeName: string; aliases?: string[]; fileTypes?: string[] };
+type Entry = { id: string; language: string; aliases?: string[]; extensions?: string[] };
 
-  it("contributes exactly the five languages this package is for", () => {
-    expect([...byLanguage.keys()].sort()).toEqual(["csharp", "dart", "kotlin", "swift", "typst"]);
+describe.each(dirs)("%s", (dir) => {
+  const id = dir.slice("language-".length);
+
+  it("ships one grammar, named after the language", async () => {
+    const all = (await import(`@shikijs/langs/${id}`)).default as Grammar[];
+    expect(all).toHaveLength(1);
+    expect(all[0]!.name).toBe(id);
+    expect(all[0]!.scopeName).toBeTruthy();
   });
 
-  it("gives every grammar the same name as the id it is served under", () => {
-    for (const [language, contribution] of byLanguage) {
-      expect((contribution.grammar as { name: string }).name).toBe(language);
-      expect((contribution.grammar as { scopeName?: string }).scopeName).toBeTruthy();
-    }
-  });
-
-  it("carries the fence aliases the grammars declare", () => {
-    // ```kt and ```cs are what a person actually types; without these rows they resolve to
-    // nothing, because the alias is only known after the grammar loads.
-    expect(byLanguage.get("kotlin")!.data.aliases).toContain("kt");
-    expect(byLanguage.get("csharp")!.data.aliases).toContain("cs");
-    expect(byLanguage.get("typst")!.data.aliases).toContain("typ");
-  });
-
-  it("carries file extensions for the Workspace file viewer", () => {
-    expect(byLanguage.get("swift")!.data.extensions).toContain("swift");
-    expect(byLanguage.get("kotlin")!.data.extensions).toContain("kt");
-    expect(byLanguage.get("dart")!.data.extensions).toContain("dart");
-    // Typst's grammar declares no fileTypes, so this one is stated by the package.
-    expect(byLanguage.get("typst")!.data.extensions).toContain("typ");
-  });
-
-  it("binds a grammar for every language the manifest declares", () => {
-    // The static half is what the server reads without executing this package; a language it
-    // announces with nothing bound under its contribution id is a 404 at load time.
-    const declared = table.modules.Languages!.contributes["LanguagesModule.grammars"]!;
-    const bound = new Map(languageContributions().map((c) => [c.id, c.grammar]));
-    expect(declared.map((d) => d.language).sort()).toEqual([...byLanguage.keys()].sort());
-    for (const entry of declared) {
-      expect(bound.get(entry.id), entry.id).toBeTruthy();
-    }
-  });
-
-  it("declares in the manifest exactly the metadata the grammars give", () => {
-    // The server lists languages from the manifest alone; a field only the grammar carries
-    // (Typst's `typ` alias, Swift's `.swift`) would never reach the App.
-    const declared = table.modules.Languages!.contributes["LanguagesModule.grammars"]!;
-    for (const { id, ...data } of declared) {
-      expect(data, id).toEqual(byLanguage.get(data.language)!.data);
-    }
+  it("covers every alias and extension the grammar declares, and the manifest says the same", async () => {
+    const mod = (await import(`../plugins/${dir}/src/index.ts`)) as {
+      language: Omit<Entry, "id">;
+      grammar: Grammar;
+    };
+    expect(mod.language.language).toBe(id);
+    expect(mod.language.aliases ?? []).toEqual(expect.arrayContaining(mod.grammar.aliases ?? []));
+    expect(mod.language.extensions ?? []).toEqual(
+      expect.arrayContaining(mod.grammar.fileTypes ?? []),
+    );
+    const table = JSON.parse(readFileSync(new URL(`${dir}/ifaces.json`, root), "utf8")) as {
+      modules: Record<string, { contributes: Record<string, Entry[]> }>;
+    };
+    const [manifest] = Object.values(table.modules);
+    const [entry, ...rest] = manifest!.contributes["LanguagesModule.grammars"]!;
+    expect(rest).toEqual([]);
+    const { id: contributionId, ...data } = entry!;
+    expect(contributionId).toBe(`language.${id}`);
+    expect(data).toEqual(mod.language);
   });
 });

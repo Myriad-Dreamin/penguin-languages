@@ -1,0 +1,36 @@
+{
+  "hash": "31752f624805365292fddde3db747cfdb0692ef70f15fe6df680583f3289a918",
+  "ifaces": {
+    "@myriad-dreamin/penguin-language-dart#DartLanguage": {
+      "name": "DartLanguage",
+      "methods": {},
+      "slots": {}
+    }
+  },
+  "types": {},
+  "modules": {
+    "DartLanguage": {
+      "name": "DartLanguage",
+      "kind": "component",
+      "requires": {},
+      "provides": {
+        "DartLanguage": "@myriad-dreamin/penguin-language-dart#DartLanguage"
+      },
+      "contributes": {
+        "LanguagesModule.grammars": [
+          {
+            "id": "language.dart",
+            "language": "dart",
+            "displayName": "Dart",
+            "extensions": ["dart"]
+          }
+        ]
+      },
+      "children": []
+    }
+  },
+  "plugin": {
+    "modules": ["DartLanguage"],
+    "replaces": []
+  }
+}

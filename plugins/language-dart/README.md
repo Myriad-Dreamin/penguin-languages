@@ -1,0 +1,22 @@
+# @myriad-dreamin/penguin-language-dart
+
+Dart syntax highlighting for [PenguinHarness](https://github.com/Prism-Shadow/penguin-harness).
+
+| Fence  | File extensions |
+| ------ | --------------- |
+| `dart` | `.dart`         |
+
+Install it from a PenguinHarness server's **Plugins** page, or list it in a Project's
+`.project_config.toml`:
+
+```toml
+[plugins]
+"@myriad-dreamin/penguin-language-dart" = "*"
+```
+
+The grammar is `@shikijs/langs/dart`; upstream attribution and licensing ride with that package.
+See the [repository README](https://github.com/Myriad-Dreamin/penguin-languages) for how it works.
+
+## License
+
+MIT.

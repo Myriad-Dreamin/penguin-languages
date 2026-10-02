@@ -1,0 +1,37 @@
+{
+  "hash": "656f1084583f88f0f5968aeaaeb972b967fe403b254b6df31602ad88c0195c4a",
+  "ifaces": {
+    "@myriad-dreamin/penguin-language-kotlin#KotlinLanguage": {
+      "name": "KotlinLanguage",
+      "methods": {},
+      "slots": {}
+    }
+  },
+  "types": {},
+  "modules": {
+    "KotlinLanguage": {
+      "name": "KotlinLanguage",
+      "kind": "component",
+      "requires": {},
+      "provides": {
+        "KotlinLanguage": "@myriad-dreamin/penguin-language-kotlin#KotlinLanguage"
+      },
+      "contributes": {
+        "LanguagesModule.grammars": [
+          {
+            "id": "language.kotlin",
+            "language": "kotlin",
+            "displayName": "Kotlin",
+            "aliases": ["kt", "kts"],
+            "extensions": ["kt", "kts"]
+          }
+        ]
+      },
+      "children": []
+    }
+  },
+  "plugin": {
+    "modules": ["KotlinLanguage"],
+    "replaces": []
+  }
+}

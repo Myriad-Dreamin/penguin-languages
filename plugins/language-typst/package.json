@@ -1,0 +1,48 @@
+{
+  "name": "@myriad-dreamin/penguin-language-typst",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Typst syntax highlighting for PenguinHarness.",
+  "license": "MIT",
+  "author": "Myriad-Dreamin",
+  "categories": [
+    "languages"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Myriad-Dreamin/penguin-languages.git",
+    "directory": "plugins/language-typst"
+  },
+  "homepage": "https://github.com/Myriad-Dreamin/penguin-languages/tree/main/plugins/language-typst",
+  "keywords": [
+    "penguin-harness-plugin",
+    "syntax-highlighting",
+    "typst"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "ifaces.json"
+  ],
+  "scripts": {
+    "gen:ifaces": "node ${PENGUIN_HARNESS:-../../../penguin-harness}/scripts/gen-ifaces.mjs --project tsconfig.json --out ifaces.json",
+    "build": "tsup"
+  },
+  "peerDependencies": {
+    "@prismshadow/penguin-core": ">=0.2.14"
+  },
+  "devDependencies": {
+    "@prismshadow/penguin-core": ">=0.2.14",
+    "@shikijs/langs": "4.3.1",
+    "tsup": "^8.3.0"
+  }
+}
