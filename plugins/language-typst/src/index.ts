@@ -1,5 +1,5 @@
 /**
- * @myriad-dreamin/penguin-language-typst: Typst syntax highlighting for PenguinHarness.
+ * @penguinharness/language-typst: Typst syntax highlighting for PenguinHarness.
  *
  * One TextMate grammar, contributed through the `LanguagesModule.grammars` slot. The server
  * lists the language from the manifest below without importing this package, and the Web App

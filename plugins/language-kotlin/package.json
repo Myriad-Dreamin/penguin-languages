@@ -1,5 +1,5 @@
 {
-  "name": "@myriad-dreamin/penguin-language-kotlin",
+  "name": "@penguinharness/language-kotlin",
   "version": "0.1.0",
   "type": "module",
   "description": "Kotlin syntax highlighting for PenguinHarness.",

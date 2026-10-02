@@ -1,7 +1,7 @@
 {
-  "hash": "00e20c9ae4ed081c4f1a46a021cb0e46bc26e689d5cbbbe332f379c31515c214",
+  "hash": "c78a908ef2d522151069b76cca55790dd07e3eb1715829086fa1f1f79acac77c",
   "ifaces": {
-    "@myriad-dreamin/penguin-language-typst#TypstLanguage": {
+    "@penguinharness/language-typst#TypstLanguage": {
       "name": "TypstLanguage",
       "methods": {},
       "slots": {}
@@ -14,7 +14,7 @@
       "kind": "component",
       "requires": {},
       "provides": {
-        "TypstLanguage": "@myriad-dreamin/penguin-language-typst#TypstLanguage"
+        "TypstLanguage": "@penguinharness/language-typst#TypstLanguage"
       },
       "contributes": {
         "LanguagesModule.grammars": [

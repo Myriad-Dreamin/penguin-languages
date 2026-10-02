@@ -1,5 +1,5 @@
 {
-  "name": "@myriad-dreamin/penguin-language-swift",
+  "name": "@penguinharness/language-swift",
   "version": "0.1.0",
   "type": "module",
   "description": "Swift syntax highlighting for PenguinHarness.",

@@ -1,7 +1,7 @@
 {
-  "hash": "ee3080593cede726f5bbf090ebfa18805fff1d74ac57f755566ebebf856a8335",
+  "hash": "38f3ed22c77f6b57704524635e3da46a2fade688537d505f197ebebf1269cb5a",
   "ifaces": {
-    "@myriad-dreamin/penguin-language-swift#SwiftLanguage": {
+    "@penguinharness/language-swift#SwiftLanguage": {
       "name": "SwiftLanguage",
       "methods": {},
       "slots": {}
@@ -14,7 +14,7 @@
       "kind": "component",
       "requires": {},
       "provides": {
-        "SwiftLanguage": "@myriad-dreamin/penguin-language-swift#SwiftLanguage"
+        "SwiftLanguage": "@penguinharness/language-swift#SwiftLanguage"
       },
       "contributes": {
         "LanguagesModule.grammars": [

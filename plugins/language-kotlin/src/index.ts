@@ -1,5 +1,5 @@
 /**
- * @myriad-dreamin/penguin-language-kotlin: Kotlin syntax highlighting for PenguinHarness.
+ * @penguinharness/language-kotlin: Kotlin syntax highlighting for PenguinHarness.
  *
  * One TextMate grammar, contributed through the `LanguagesModule.grammars` slot. The server
  * lists the language from the manifest below without importing this package, and the Web App

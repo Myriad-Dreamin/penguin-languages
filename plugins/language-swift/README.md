@@ -1,4 +1,4 @@
-# @myriad-dreamin/penguin-language-swift
+# @penguinharness/language-swift
 
 Swift syntax highlighting for [PenguinHarness](https://github.com/Prism-Shadow/penguin-harness).
 
@@ -11,7 +11,7 @@ Install it from a PenguinHarness server's **Plugins** page, or list it in a Proj
 
 ```toml
 [plugins]
-"@myriad-dreamin/penguin-language-swift" = "*"
+"@penguinharness/language-swift" = "*"
 ```
 
 The grammar is `@shikijs/langs/swift`; upstream attribution and licensing ride with that package.

@@ -1,7 +1,7 @@
 {
-  "hash": "656f1084583f88f0f5968aeaaeb972b967fe403b254b6df31602ad88c0195c4a",
+  "hash": "a5758982fea2c39fba66ef3da734fa62f3638f76c5917276bec7767740f73199",
   "ifaces": {
-    "@myriad-dreamin/penguin-language-kotlin#KotlinLanguage": {
+    "@penguinharness/language-kotlin#KotlinLanguage": {
       "name": "KotlinLanguage",
       "methods": {},
       "slots": {}
@@ -14,7 +14,7 @@
       "kind": "component",
       "requires": {},
       "provides": {
-        "KotlinLanguage": "@myriad-dreamin/penguin-language-kotlin#KotlinLanguage"
+        "KotlinLanguage": "@penguinharness/language-kotlin#KotlinLanguage"
       },
       "contributes": {
         "LanguagesModule.grammars": [

@@ -5,13 +5,13 @@ one language per plugin. They are external plugins: each is an npm package a Pro
 the **Plugins** page, which the server downloads from the registry and checks against the plugin
 index's integrity.
 
-| Language | Plugin                                                               | Fence                 | File extensions |
-| -------- | -------------------------------------------------------------------- | --------------------- | --------------- |
-| Typst    | [`@myriad-dreamin/penguin-language-typst`](plugins/language-typst)   | `typst`, `typ`        | `.typ`          |
-| Swift    | [`@myriad-dreamin/penguin-language-swift`](plugins/language-swift)   | `swift`               | `.swift`        |
-| Kotlin   | [`@myriad-dreamin/penguin-language-kotlin`](plugins/language-kotlin) | `kotlin`, `kt`, `kts` | `.kt`, `.kts`   |
-| C#       | [`@myriad-dreamin/penguin-language-csharp`](plugins/language-csharp) | `csharp`, `c#`, `cs`  | `.cs`, `.csx`   |
-| Dart     | [`@myriad-dreamin/penguin-language-dart`](plugins/language-dart)     | `dart`                | `.dart`         |
+| Language | Plugin                                                       | Fence                 | File extensions |
+| -------- | ------------------------------------------------------------ | --------------------- | --------------- |
+| Typst    | [`@penguinharness/language-typst`](plugins/language-typst)   | `typst`, `typ`        | `.typ`          |
+| Swift    | [`@penguinharness/language-swift`](plugins/language-swift)   | `swift`               | `.swift`        |
+| Kotlin   | [`@penguinharness/language-kotlin`](plugins/language-kotlin) | `kotlin`, `kt`, `kts` | `.kt`, `.kts`   |
+| C#       | [`@penguinharness/language-csharp`](plugins/language-csharp) | `csharp`, `c#`, `cs`  | `.cs`, `.csx`   |
+| Dart     | [`@penguinharness/language-dart`](plugins/language-dart)     | `dart`                | `.dart`         |
 
 ## How it works
 

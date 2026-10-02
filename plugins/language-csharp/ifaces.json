@@ -1,7 +1,7 @@
 {
-  "hash": "0b9cb0b33f67ac3a8d84e895bbdee21e4e8c6834d3381f0dcd2d2ad2af9bc906",
+  "hash": "aca788b2f1162013178d21fb17d3f884fd25c0457a061605c9b6e7f0ca893696",
   "ifaces": {
-    "@myriad-dreamin/penguin-language-csharp#CSharpLanguage": {
+    "@penguinharness/language-csharp#CSharpLanguage": {
       "name": "CSharpLanguage",
       "methods": {},
       "slots": {}
@@ -14,7 +14,7 @@
       "kind": "component",
       "requires": {},
       "provides": {
-        "CSharpLanguage": "@myriad-dreamin/penguin-language-csharp#CSharpLanguage"
+        "CSharpLanguage": "@penguinharness/language-csharp#CSharpLanguage"
       },
       "contributes": {
         "LanguagesModule.grammars": [

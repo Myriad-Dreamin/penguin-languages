@@ -1,5 +1,5 @@
 {
-  "name": "@myriad-dreamin/penguin-language-typst",
+  "name": "@penguinharness/language-typst",
   "version": "0.1.0",
   "type": "module",
   "description": "Typst syntax highlighting for PenguinHarness.",

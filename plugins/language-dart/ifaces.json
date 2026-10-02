@@ -1,7 +1,7 @@
 {
-  "hash": "31752f624805365292fddde3db747cfdb0692ef70f15fe6df680583f3289a918",
+  "hash": "89e13bbb30185aa9ca06047c1613c7073bd7c16f3d8426ffd1909502d0e71017",
   "ifaces": {
-    "@myriad-dreamin/penguin-language-dart#DartLanguage": {
+    "@penguinharness/language-dart#DartLanguage": {
       "name": "DartLanguage",
       "methods": {},
       "slots": {}
@@ -14,7 +14,7 @@
       "kind": "component",
       "requires": {},
       "provides": {
-        "DartLanguage": "@myriad-dreamin/penguin-language-dart#DartLanguage"
+        "DartLanguage": "@penguinharness/language-dart#DartLanguage"
       },
       "contributes": {
         "LanguagesModule.grammars": [

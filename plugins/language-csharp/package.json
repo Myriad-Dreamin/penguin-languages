@@ -1,5 +1,5 @@
 {
-  "name": "@myriad-dreamin/penguin-language-csharp",
+  "name": "@penguinharness/language-csharp",
   "version": "0.1.0",
   "type": "module",
   "description": "C# syntax highlighting for PenguinHarness.",
