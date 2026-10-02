@@ -1,0 +1,56 @@
+{
+  "name": "@myriad-dreamin/penguin-plugin-languages",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Syntax highlighting for Typst, Swift, Kotlin, C# and Dart in PenguinHarness.",
+  "license": "MIT",
+  "author": "Myriad-Dreamin",
+  "categories": [
+    "languages"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Myriad-Dreamin/penguin-plugin-languages.git"
+  },
+  "homepage": "https://github.com/Myriad-Dreamin/penguin-plugin-languages",
+  "keywords": [
+    "penguin-harness-plugin",
+    "syntax-highlighting",
+    "typst",
+    "swift",
+    "kotlin",
+    "csharp",
+    "dart"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "ifaces.json"
+  ],
+  "scripts": {
+    "gen:ifaces": "node ${PENGUIN_HARNESS:-../penguin-harness}/scripts/gen-ifaces.mjs --project tsconfig.json --out ifaces.json",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run",
+    "build": "tsup"
+  },
+  "peerDependencies": {
+    "@prismshadow/penguin-core": ">=0.2.14"
+  },
+  "devDependencies": {
+    "@prismshadow/penguin-core": ">=0.2.14",
+    "@shikijs/langs": "4.3.1",
+    "@types/node": "^24.0.0",
+    "tsup": "^8.3.0",
+    "typescript": "^5.9.0",
+    "vitest": "^3.2.6"
+  }
+}
